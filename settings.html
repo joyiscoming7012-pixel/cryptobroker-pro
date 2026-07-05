@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings — CryptoBroker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <h1>CryptoBroker <span>Pro</span></h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="market.html">Market</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="settings.html" class="active">Settings</a>
+                <a href="#" class="user-menu">
+                    <span class="user-avatar" id="navAvatar">JD</span>
+                    <span id="navName">John Doe</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="settings-page">
+        <div class="page-header">
+            <h2>Settings</h2>
+            <p>Manage your account, security, and preferences</p>
+        </div>
+
+        <div class="settings-layout">
+            <!-- ============ SIDEBAR NAV ============ -->
+            <aside class="settings-sidebar">
+                <nav class="settings-nav">
+                    <a href="#profile" class="settings-nav-item active" data-section="profile">
+                        <span class="nav-icon">👤</span>
+                        <span>Profile</span>
+                    </a>
+                    <a href="#security" class="settings-nav-item" data-section="security">
+                        <span class="nav-icon">🔒</span>
+                        <span>Security</span>
+                    </a>
+                    <a href="#notifications" class="settings-nav-item" data-section="notifications">
+                        <span class="nav-icon">🔔</span>
+                        <span>Notifications</span>
+                    </a>
+                    <a href="#api" class="settings-nav-item" data-section="api">
+                        <span class="nav-icon">🔑</span>
+                        <span>API Keys</span>
+                    </a>
+                    <a href="#appearance" class="settings-nav-item" data-section="appearance">
+                        <span class="nav-icon">🎨</span>
+                        <span>Appearance</span>
+                    </a>
+                    <a href="#linked" class="settings-nav-item" data-section="linked">
+                        <span class="nav-icon">🔗</span>
+                        <span>Linked Accounts</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- ============ CONTENT AREA ============ -->
+            <div class="settings-content">
+                <!-- ---- PROFILE SECTION ---- -->
+                <section class="settings-section active" id="sectionProfile">
+                    <h3>Profile Information</h3>
+                    <p class="section-desc">Update your personal details and how others see you on the platform.</p>
+
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar-lg" id="profileAvatar">JD</div>
+                        <div class="avatar-actions">
+                            <button class="btn-outline btn-sm" id="btnChangeAvatar">📷 Change Photo</button>
+                            <button class="btn-outline btn-sm" id="btnRemoveAvatar">🗑 Remove</button>
+                        </div>
+                    </div>
+
+                    <form id="profileForm" class="settings-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" id="firstName" value="John" class="full-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" id="lastName" value="Doe" class="full-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Display Name</label>
+                            <input type="text" id="displayName" value="JohnDoe" class="full-input">
+                            <span class="input-hint">This is how you'll appear to other traders. 3-24 characters.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="profileEmail" value="john@example.com" class="full-input">
+                            <span class="input-hint verified">✓ Verified</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="phoneNumber" value="+1 (555) 123-4567" class="full-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Country / Region</label>
+                            <select id="country" class="full-select">
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Canada</option>
+                                <option>Australia</option>
+                                <option>Germany</option>
+                                <option>Singapore</option>
+                                <option>Nigeria</option>
+                                <option>Japan</option>
+                                <option>South Korea</option>
+                                <option>United Arab Emirates</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Time Zone</label>
+                            <select id="timezone" class="full-select">
+                                <option>UTC-08:00 Pacific Time (US & Canada)</option>
+                                <option>UTC-05:00 Eastern Time (US & Canada)</option>
+                                <option>UTC+00:00 London</option>
+                                <option>UTC+01:00 Berlin, Paris</option>
+                                <option>UTC+01:00 Lagos, West Africa</option>
+                                <option>UTC+03:00 Dubai, Moscow</option>
+                                <option>UTC+05:30 Mumbai, New Delhi</option>
+                                <option>UTC+08:00 Beijing, Singapore</option>
+                                <option>UTC+09:00 Tokyo, Seoul</option>
+                                <option>UTC+11:00 Sydney</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Bio</label>
+                            <textarea id="bio" class="full-input" rows="3" maxlength="200" placeholder="Tell the community a bit about yourself...">Crypto enthusiast since 2017. Long-term HODLer and DeFi explorer.</textarea>
+                            <span class="input-hint"><span id="bioCount">58</span>/200</span>
+                        </div>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </form>
+                </section>
+
+                <!-- ---- SECURITY SECTION ---- -->
+                <section class="settings-section" id="sectionSecurity">
+                    <h3>Security</h3>
+                    <p class="section-desc">Protect your account with strong security settings.</p>
+
+                    <div class="security-status">
+                        <div class="security-score">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" fill="none" stroke="var(--border)" stroke-width="6"/>
+                                    <circle cx="50" cy="50" r="42" fill="none" stroke="var(--green)" stroke-width="6" stroke-dasharray="198" stroke-dashoffset="53" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+                                </svg>
+                                <span class="score-text">75<span>%</span></span>
+                            </div>
+                            <div class="score-info">
+                                <strong>Your security score is Good</strong>
+                                <p>Complete the remaining items to reach 100%.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-form">
+                        <div class="toggle-card completed">
+                            <div class="toggle-info">
+                                <span class="toggle-icon">✅</span>
+                                <div>
+                                    <strong>Two-Factor Authentication (2FA)</strong>
+                                    <span>Enabled via Authenticator App</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm" id="btnManage2FA">Manage</button>
+                        </div>
+
+                        <div class="toggle-card completed">
+                            <div class="toggle-info">
+                                <span class="toggle-icon">✅</span>
+                                <div>
+                                    <strong>Passkey / Biometric Login</strong>
+                                    <span>Face ID registered on iPhone 15 Pro</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm" id="btnManagePasskey">Manage</button>
+                        </div>
+
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon">⚠️</span>
+                                <div>
+                                    <strong>Backup Codes</strong>
+                                    <span>Generate one-time backup codes for account recovery.</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm" id="btnBackupCodes">Generate</button>
+                        </div>
+
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon">🔑</span>
+                                <div>
+                                    <strong>Change Password</strong>
+                                    <span>Last changed 3 months ago</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm" id="btnChangePassword">Change</button>
+                        </div>
+
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon">📱</span>
+                                <div>
+                                    <strong>Trusted Devices</strong>
+                                    <span>Manage devices authorized to access your account</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm" id="btnDevices">Manage</button>
+                        </div>
+
+                        <!-- Session History -->
+                        <h4 style="margin:28px 0 14px;font-size:15px">Recent Login Activity</h4>
+                        <div class="session-list">
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <div class="session-icon current">💻</div>
+                                    <div>
+                                        <strong>Current Session</strong>
+                                        <span>San Francisco, CA • Chrome on macOS</span>
+                                    </div>
+                                </div>
+                                <span class="session-badge current">Now</span>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <div class="session-icon">📱</div>
+                                    <div>
+                                        <strong>iPhone 15 Pro</strong>
+                                        <span>San Francisco, CA • Safari on iOS</span>
+                                    </div>
+                                </div>
+                                <span class="session-time">2 hours ago</span>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <div class="session-icon">🌐</div>
+                                    <div>
+                                        <strong>Unknown Device</strong>
+                                        <span>Lagos, NG • Firefox on Windows</span>
+                                    </div>
+                                </div>
+                                <span class="session-time">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---- NOTIFICATIONS SECTION ---- -->
+                <section class="settings-section" id="sectionNotifications">
+                    <h3>Notification Preferences</h3>
+                    <p class="section-desc">Choose what you want to be notified about and how.</p>
+
+                    <div class="settings-form">
+                        <h4 style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">Channels</h4>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>📧 Email Notifications</strong>
+                                    <span>Receive alerts at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e48e8b8c8aa4819c8589948881ca878b89">[email&#160;protected]</a></span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="notifEmail">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>📱 Push Notifications</strong>
+                                    <span>Real-time alerts on your mobile device</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="notifPush">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <h4 style="font-size:14px;color:var(--text-secondary);margin:28px 0 16px">Trading Alerts</h4>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Order Executions</strong>
+                                    <span>When your buy/sell orders are filled</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="notifOrders">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Price Alerts</strong>
+                                    <span>When coins hit your target prices</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="notifPrice">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>AI Trading Signals</strong>
+                                    <span>Machine learning buy/sell recommendations</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="notifSignals">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <h4 style="font-size:14px;color:var(--text-secondary);margin:28px 0 16px">Account & Platform</h4>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Deposits & Withdrawals</strong>
+                                    <span>When funds enter or leave your wallet</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="notifDeposits">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Security Alerts</strong>
+                                    <span>New logins, password changes, 2FA updates</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="notifSecurity">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Product Updates & News</strong>
+                                    <span>New features, listings, and platform news</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="notifNews">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Weekly Portfolio Digest</strong>
+                                    <span>Summary of your portfolio performance</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked id="notifDigest">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <button class="btn-primary" id="saveNotifications">Save Preferences</button>
+                    </div>
+                </section>
+
+                <!-- ---- API KEYS SECTION ---- -->
+                <section class="settings-section" id="sectionApi">
+                    <h3>API Keys</h3>
+                    <p class="section-desc">Create and manage API keys for automated trading and data access.</p>
+
+                    <div class="api-notice">
+                        <span>🔐</span>
+                        <div>
+                            <strong>Keep your keys secret!</strong>
+                            <p>Never share API keys. Keys with trading permissions can move funds.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-form">
+                        <div class="api-key-card">
+                            <div class="api-key-header">
+                                <div>
+                                    <strong>Trading Bot v2</strong>
+                                    <span class="api-key-id">Key: cbp_live_8f3a2…d4e1</span>
+                                </div>
+                                <span class="api-badge active">Active</span>
+                            </div>
+                            <div class="api-key-body">
+                                <div class="api-perm-row">
+                                    <span>Created:</span> <span>Mar 15, 2026</span>
+                                </div>
+                                <div class="api-perm-row">
+                                    <span>Last used:</span> <span>2 minutes ago</span>
+                                </div>
+                                <div class="api-perm-row">
+                                    <span>Permissions:</span>
+                                    <div class="api-perms">
+                                        <span class="perm-tag read">Read</span>
+                                        <span class="perm-tag trade">Trade</span>
+                                    </div>
+                                </div>
+                                <div class="api-perm-row">
+                                    <span>IP Whitelist:</span> <span>192.168.1.100, 10.0.0.5</span>
+                                </div>
+                            </div>
+                            <div class="api-key-actions">
+                                <button class="btn-outline btn-sm">📋 Copy</button>
+                                <button class="btn-outline btn-sm">⚙ Edit</button>
+                                <button class="btn-outline btn-sm" style="border-color:var(--red);color:var(--red)">🗑 Revoke</button>
+                            </div>
+                        </div>
+
+                        <div class="api-key-card">
+                            <div class="api-key-header">
+                                <div>
+                                    <strong>Portfolio Tracker</strong>
+                                    <span class="api-key-id">Key: cbp_live_9b2c1…a7f3</span>
+                                </div>
+                                <span class="api-badge active">Active</span>
+                            </div>
+                            <div class="api-key-body">
+                                <div class="api-perm-row">
+                                    <span>Created:</span> <span>Jan 8, 2026</span>
+                                </div>
+                                <div class="api-perm-row">
+                                    <span>Last used:</span> <span>3 hours ago</span>
+                                </div>
+                                <div class="api-perm-row">
+                                    <span>Permissions:</span>
+                                    <div class="api-perms">
+                                        <span class="perm-tag read">Read</span>
+                                    </div>
+                                </div>
+                                <div class="api-perm-row">
+                                    <span>IP Whitelist:</span> <span>Unrestricted</span>
+                                </div>
+                            </div>
+                            <div class="api-key-actions">
+                                <button class="btn-outline btn-sm">📋 Copy</button>
+                                <button class="btn-outline btn-sm">⚙ Edit</button>
+                                <button class="btn-outline btn-sm" style="border-color:var(--red);color:var(--red)">🗑 Revoke</button>
+                            </div>
+                        </div>
+
+                        <button class="btn-primary" id="btnCreateApiKey">➕ Create New API Key</button>
+                    </div>
+                </section>
+
+                <!-- ---- APPEARANCE SECTION ---- -->
+                <section class="settings-section" id="sectionAppearance">
+                    <h3>Appearance</h3>
+                    <p class="section-desc">Customize how CryptoBroker Pro looks and feels.</p>
+
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>Theme</label>
+                            <div class="theme-options">
+                                <label class="theme-option active" data-theme="dark">
+                                    <div class="theme-preview dark">
+                                        <div class="tp-sidebar"></div>
+                                        <div class="tp-main">
+                                            <div class="tp-header"></div>
+                                            <div class="tp-body">
+                                                <div class="tp-card"></div>
+                                                <div class="tp-card"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span>Dark</span>
+                                </label>
+                                <label class="theme-option" data-theme="light">
+                                    <div class="theme-preview light">
+                                        <div class="tp-sidebar"></div>
+                                        <div class="tp-main">
+                                            <div class="tp-header"></div>
+                                            <div class="tp-body">
+                                                <div class="tp-card"></div>
+                                                <div class="tp-card"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span>Light</span>
+                                </label>
+                                <label class="theme-option" data-theme="oled">
+                                    <div class="theme-preview oled">
+                                        <div class="tp-sidebar"></div>
+                                        <div class="tp-main">
+                                            <div class="tp-header"></div>
+                                            <div class="tp-body">
+                                                <div class="tp-card"></div>
+                                                <div class="tp-card"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span>OLED Black</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Reduced Motion</strong>
+                                    <span>Minimize animations and transitions</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="appearanceReducedMotion">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <div>
+                                    <strong>Compact Mode</strong>
+                                    <span>Show more data on screen with tighter spacing</span>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="appearanceCompact">
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Chart Color Scheme</label>
+                            <div class="color-scheme-options">
+                                <label class="color-scheme active">
+                                    <span class="cs-dot" style="background:linear-gradient(135deg,#00c897,#ff4757)"></span>
+                                    Green/Red
+                                </label>
+                                <label class="color-scheme">
+                                    <span class="cs-dot" style="background:linear-gradient(135deg,#6c5ce7,#ff6b6b)"></span>
+                                    Purple/Red
+                                </label>
+                                <label class="color-scheme">
+                                    <span class="cs-dot" style="background:linear-gradient(135deg,#0099ff,#ff9900)"></span>
+                                    Blue/Orange
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="btn-primary" id="saveAppearance">Save Preferences</button>
+                    </div>
+                </section>
+
+                <!-- ---- LINKED ACCOUNTS SECTION ---- -->
+                <section class="settings-section" id="sectionLinked">
+                    <h3>Linked Accounts</h3>
+                    <p class="section-desc">Connect external accounts for seamless login, payments, and data sync.</p>
+
+                    <div class="settings-form">
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon" style="font-size:28px">🔵</span>
+                                <div>
+                                    <strong>Google</strong>
+                                    <span>Connected as <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="03696c6b6d43646e626a6f2d606c6e">[email&#160;protected]</a></span>
+                                </div>
+                            </div>
+                            <span class="link-badge connected">✓ Connected</span>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon" style="font-size:28px">🐦</span>
+                                <div>
+                                    <strong>Twitter / X</strong>
+                                    <span>Share trades and follow crypto updates</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm">Connect</button>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon" style="font-size:28px">🏦</span>
+                                <div>
+                                    <strong>Bank Account</strong>
+                                    <span>Chase ending in 4521</span>
+                                </div>
+                            </div>
+                            <span class="link-badge connected">✓ Connected</span>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon" style="font-size:28px">💳</span>
+                                <div>
+                                    <strong>Credit Card</strong>
+                                    <span>Visa ending in 8901</span>
+                                </div>
+                            </div>
+                            <span class="link-badge connected">✓ Connected</span>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon" style="font-size:28px">🐙</span>
+                                <div>
+                                    <strong>GitHub</strong>
+                                    <span>Link your developer profile</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm">Connect</button>
+                        </div>
+                        <div class="toggle-card">
+                            <div class="toggle-info">
+                                <span class="toggle-icon" style="font-size:28px">📊</span>
+                                <div>
+                                    <strong>TradingView</strong>
+                                    <span>Sync charts and indicators</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-sm">Connect</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============ 2FA MODAL ============ -->
+    <div class="modal-overlay hidden" id="twoFAModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Two-Factor Authentication</h3>
+                <button class="modal-close" id="close2FA">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="twofa-status">
+                    <div class="twofa-icon-large">🔐</div>
+                    <strong>2FA is currently enabled</strong>
+                    <p>Your account is protected with an authenticator app.</p>
+                </div>
+                <div class="form-group">
+                    <label>Backup Method</label>
+                    <select class="full-select">
+                        <option>Authenticator App (Active)</option>
+                        <option>SMS (Not configured)</option>
+                        <option>Hardware Security Key (Not configured)</option>
+                    </select>
+                </div>
+                <button class="btn-outline btn-full" style="border-color:var(--red);color:var(--red)">Disable 2FA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ CHANGE PASSWORD MODAL ============ -->
+    <div class="modal-overlay hidden" id="passwordModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Change Password</h3>
+                <button class="modal-close" id="closePassword">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="currentPassword" placeholder="Enter current password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔑</span>
+                        <input type="password" id="newPassword" placeholder="Min. 8 characters">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔑</span>
+                        <input type="password" id="confirmNewPassword" placeholder="Re-enter new password">
+                    </div>
+                </div>
+                <div id="passwordError" class="form-error hidden"></div>
+                <button class="btn-primary btn-full" id="submitPassword">Update Password</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ API KEY MODAL ============ -->
+    <div class="modal-overlay hidden" id="apiKeyModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Create API Key</h3>
+                <button class="modal-close" id="closeApiKey">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Key Name</label>
+                    <input type="text" id="apiKeyName" class="full-input" placeholder="e.g. Trading Bot v3">
+                </div>
+                <div class="form-group">
+                    <label>Permissions</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" checked> Read (View balances & history)</label>
+                        <label class="checkbox-label"><input type="checkbox" id="permTrade"> Trade (Place & cancel orders)</label>
+                        <label class="checkbox-label"><input type="checkbox"> Withdraw (Move funds out)</label>
+                        <label class="checkbox-label"><input type="checkbox"> Transfer (Move funds between accounts)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>IP Whitelist (optional)</label>
+                    <input type="text" class="full-input" placeholder="192.168.1.1, 10.0.0.0/24">
+                    <span class="input-hint">Restrict API access to specific IPs. Leave blank for unrestricted.</span>
+                </div>
+                <button class="btn-primary btn-full" id="submitApiKey">Generate Key</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ TOAST ============ -->
+    <div class="toast hidden" id="toast">
+        <span class="toast-icon">✅</span>
+        <span class="toast-msg" id="toastMsg">Settings saved successfully!</span>
+    </div>
+
+    <footer>
+        <p>© 2026 CryptoBroker Pro. All rights reserved.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"3279d41ec7804124a29acc6e692f9a2b","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -5,4 +5,273 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wallet — CryptoBroker Pro</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <h1>CryptoBroker <span>Pro</span></h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="market.html">Market</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="wallet.html" class="active">Wallet</a>
+                <a href="settings.html">Settings</a>
+                <a href="#" class="user-menu">
+                    <span class="user-avatar">JD</span>
+                    <span>John Doe</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wallet-page">
+        <!-- ============ BALANCE OVERVIEW ============ -->
+        <div class="wallet-balance-bar">
+            <div class="balance-card">
+                <div class="balance-icon">💰</div>
+                <div class="balance-info">
+                    <span class="balance-label">Total Balance</span>
+                    <span class="balance-value">$124,567.89</span>
+                    <span class="balance-btc">≈ 1.8524 BTC</span>
+                </div>
+            </div>
+            <div class="balance-card">
+                <div class="balance-icon">📈</div>
+                <div class="balance-info">
+                    <span class="balance-label">Available</span>
+                    <span class="balance-value">$98,234.50</span>
+                    <span class="balance-sub">Ready to trade or withdraw</span>
+                </div>
+            </div>
+            <div class="balance-card">
+                <div class="balance-icon">🔒</div>
+                <div class="balance-info">
+                    <span class="balance-label">Locked in Orders</span>
+                    <span class="balance-value">$26,333.39</span>
+                    <span class="balance-sub">In open orders & staking</span>
+                </div>
+            </div>
+            <div class="balance-actions">
+                <button class="btn-primary" id="btnDeposit">⬇ Deposit</button>
+                <button class="btn-outline" id="btnWithdraw">⬆ Withdraw</button>
+            </div>
+        </div>
+
+        <!-- ============ CRYPTO ASSETS ============ -->
+        <div class="wallet-grid">
+            <div class="wallet-section">
+                <div class="section-header">
+                    <h2>Your Assets</h2>
+                    <button class="btn-outline btn-sm">+ Add Token</button>
+                </div>
+                <div class="assets-table-wrap">
+                    <table class="assets-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Balance</th>
+                                <th>USD Value</th>
+                                <th>24h Change</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assetsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============ TRANSACTION HISTORY ============ -->
+            <div class="wallet-section">
+                <div class="section-header">
+                    <h2>Transaction History</h2>
+                    <div class="history-filters">
+                        <select id="txFilterType" class="tx-filter-select">
+                            <option value="all">All Types</option>
+                            <option value="deposit">Deposits</option>
+                            <option value="withdraw">Withdrawals</option>
+                            <option value="trade">Trades</option>
+                            <option value="staking">Staking</option>
+                        </select>
+                        <input type="text" id="txSearch" class="tx-search" placeholder="Search by coin or amount...">
+                    </div>
+                </div>
+                <div class="tx-list" id="txList">
+                </div>
+                <div class="tx-pagination" id="txPagination">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============ DEPOSIT MODAL ============ -->
+    <div class="modal-overlay hidden" id="depositModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Deposit Funds</h3>
+                <button class="modal-close" id="closeDeposit">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="deposit-tabs">
+                    <button class="deposit-tab active" data-tab="crypto">Crypto</button>
+                    <button class="deposit-tab" data-tab="fiat">Bank Transfer</button>
+                    <button class="deposit-tab" data-tab="card">Credit Card</button>
+                </div>
+
+                <!-- Crypto Deposit -->
+                <div class="deposit-panel active" id="panelCrypto">
+                    <div class="form-group">
+                        <label>Select Coin</label>
+                        <select id="depositCoin" class="full-select">
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="ETH">Ethereum (ETH)</option>
+                            <option value="SOL">Solana (SOL)</option>
+                            <option value="USDT">Tether (USDT)</option>
+                            <option value="USDC">USD Coin (USDC)</option>
+                            <option value="ADA">Cardano (ADA)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Network</label>
+                        <select id="depositNetwork" class="full-select">
+                            <option value="native">Native (BTC Network)</option>
+                            <option value="bep20">BEP-20 (BSC)</option>
+                            <option value="erc20">ERC-20 (Ethereum)</option>
+                            <option value="trc20">TRC-20 (Tron)</option>
+                        </select>
+                    </div>
+                    <div class="deposit-qr-section">
+                        <div class="qr-placeholder">
+                            <div class="qr-code">
+                                <span>₿</span>
+                            </div>
+                        </div>
+                        <p class="deposit-warning">Send only <strong id="depositNetworkName">BTC</strong> to this address. Sending any other coin will result in permanent loss.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Deposit Address</label>
+                        <div class="copy-input-wrap">
+                            <input type="text" id="depositAddress" value="bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq" readonly>
+                            <button class="btn-outline btn-sm" id="copyAddress">📋 Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fiat Deposit -->
+                <div class="deposit-panel" id="panelFiat">
+                    <div class="form-group">
+                        <label>Amount (USD)</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">💵</span>
+                            <input type="number" id="fiatAmount" placeholder="Min. $100" min="100" step="0.01">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Bank Account</label>
+                        <select class="full-select">
+                            <option>Chase — ****4521</option>
+                            <option>Bank of America — ****7832</option>
+                            <option>+ Link New Account</option>
+                        </select>
+                    </div>
+                    <p class="deposit-note">⏱ Funds typically arrive in 1-3 business days. ACH is free.</p>
+                    <button class="btn-primary btn-full" id="submitFiat">Deposit via ACH</button>
+                </div>
+
+                <!-- Card Deposit -->
+                <div class="deposit-panel" id="panelCard">
+                    <div class="form-group">
+                        <label>Amount (USD)</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">💳</span>
+                            <input type="number" id="cardAmount" placeholder="Min. $50" min="50" step="0.01">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">💳</span>
+                            <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry</label>
+                            <input type="text" placeholder="MM/YY" maxlength="5" class="half-input">
+                        </div>
+                        <div class="form-group">
+                            <label>CVC</label>
+                            <input type="text" placeholder="123" maxlength="4" class="half-input">
+                        </div>
+                    </div>
+                    <p class="deposit-note">💳 3.5% card processing fee applies. Instant credit.</p>
+                    <button class="btn-primary btn-full" id="submitCard">Deposit Instantly</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ WITHDRAW MODAL ============ -->
+    <div class="modal-overlay hidden" id="withdrawModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Withdraw Funds</h3>
+                <button class="modal-close" id="closeWithdraw">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Select Asset</label>
+                    <select id="withdrawCoin" class="full-select">
+                        <option value="BTC">Bitcoin (BTC) — Available: 1.42 BTC</option>
+                        <option value="ETH">Ethereum (ETH) — Available: 8.75 ETH</option>
+                        <option value="SOL">Solana (SOL) — Available: 124.5 SOL</option>
+                        <option value="USDT">Tether (USDT) — Available: 12,450.00 USDT</option>
+                        <option value="USD">USD — Available: $98,234.50</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💸</span>
+                        <input type="number" id="withdrawAmount" placeholder="0.00" min="0.0001" step="any">
+                        <button class="max-btn" id="maxBtn">MAX</button>
+                    </div>
+                    <span class="fee-hint" id="feeHint">Network fee: ~0.0005 BTC • You'll receive: 0.0000 BTC</span>
+                </div>
+                <div class="form-group">
+                    <label>Destination Address / Account</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📤</span>
+                        <input type="text" id="withdrawAddress" placeholder="Enter wallet address or bank account...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="withdrawConfirm">
+                        I confirm this is the correct address. Withdrawals cannot be reversed.
+                    </label>
+                </div>
+                <div id="withdrawError" class="form-error hidden"></div>
+                <button class="btn-primary btn-full" id="submitWithdraw">Confirm Withdrawal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SUCCESS TOAST ============ -->
+    <div class="toast hidden" id="toast">
+        <span class="toast-icon">✅</span>
+        <span class="toast-msg" id="toastMsg">Transaction submitted successfully!</span>
+    </div>
+
+    <footer>
+        <p>© 2026 CryptoBroker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"3279d41ec7804124a29acc6e692f9a2b","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
