@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — CryptoBroker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <h1>CryptoBroker <span>Pro</span></h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="market.html">Market</a>
+                <a href="register.html" class="btn-outline">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Log in to your CryptoBroker Pro account</p>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" placeholder="you@example.com" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💒</span>
+                        <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">👁️</button>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <div id="loginError" class="form-error hidden"></div>
+                <button type="submit" class="btn-primary btn-full">Log In</button>
+            </form>
+            <div class="auth-divider">
+                <span>or continue with</span>
+            </div>
+            <div class="social-login">
+                <button class="social-btn">
+                    <span>🔵</span>  Google
+                </button>
+                <button class="social-btn">
+                    <span>🐦</span>  Twitter
+                </button>
+                <button class="social-btn">
+                    <span>💳</span>  Wallet
+                </button>
+            </div>
+            <p class="auth-switch">Don't have an account? <a href="register.html">Sign up free</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 CryptoBroker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
