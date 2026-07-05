@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register — CryptoBroker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <h1>CryptoBroker <span>Pro</span></h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="market.html">Market</a>
+                <a href="login.html" class="btn-outline">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Create Your Account</h2>
+                <p>Start trading in minutes. No credit card required.</p>
+            </div>
+            <form id="registrationForm" class="auth-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="name" placeholder="John Doe" required autocomplete="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" placeholder="you@example.com" required autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💒</span>
+                        <input type="password" id="password" placeholder="Min. 8 characters" required minlength="8" autocomplete="new-password">
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">👁️</button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar"></div>
+                        <span class="strength-text"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💒</span>
+                        <input type="password" id="confirmPassword" placeholder="Re-enter password" required minlength="8" autocomplete="new-password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" required>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+                <div id="registerError" class="form-error hidden"></div>
+                <button type="submit" class="btn-primary btn-full">Create Free Account</button>
+            </form>
+            <div class="auth-divider">
+                <span>or continue with</span>
+            </div>
+            <div class="social-login">
+                <button class="social-btn">
+                    <span>🔵</span>  Google
+                </button>
+                <button class="social-btn">
+                    <span>🐦</span>  Twitter
+                </button>
+            </div>
+            <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 CryptoBroker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
