@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market — CryptoBroker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <h1>CryptoBroker <span>Pro</span></h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="market.html" class="active">Market</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="settings.html">Settings</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="login.html" class="btn-outline">Login</a>
+                <a href="register.html" class="btn-primary">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="market-page">
+        <div class="page-header">
+            <h2>Crypto Market</h2>
+            <p>Live prices, volume, and market data for 150+ cryptocurrencies</p>
+        </div>
+
+        <div class="market-toolbar">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="marketSearch" placeholder="Search coin or symbol...">
+            </div>
+            <div class="market-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Top Gainers</button>
+                <button class="filter-btn">Top Losers</button>
+                <button class="filter-btn">Watchlist ⭐</button>
+                <button class="filter-btn">DeFi</button>
+                <button class="filter-btn">Layer 1</button>
+                <button class="filter-btn">Meme</button>
+            </div>
+        </div>
+
+        <div class="market-table-container">
+            <table class="market-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>24h Change</th>
+                        <th>24h Volume</th>
+                        <th>Market Cap</th>
+                        <th>7D Chart</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="marketTableBody">
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 CryptoBroker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
