@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — CryptoBroker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <h1>CryptoBroker <span>Pro</span></h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="market.html">Market</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="settings.html">Settings</a>
+                <a href="#" class="user-menu">
+                    <span class="user-avatar">JD</span>
+                    <span>John Doe</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="dashboard-header">
+            <div>
+                <h2>Welcome back, John 👋</h2>
+                <p>Here's your portfolio overview for today</p>
+            </div>
+            <div class="dashboard-actions">
+                <button class="btn-primary">Deposit</button>
+                <button class="btn-outline">Withdraw</button>
+            </div>
+        </div>
+
+        <div class="portfolio-summary">
+            <div class="summary-card">
+                <span class="summary-label">Total Balance</span>
+                <span class="summary-value">$124,567.89</span>
+                <span class="summary-change up">+$3,421.20 (2.82%)</span>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">Today's P&L</span>
+                <span class="summary-value">+$1,234.56</span>
+                <span class="summary-change up">+1.01%</span>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">Total Invested</span>
+                <span class="summary-value">$98,200.00</span>
+                <span class="summary-change">Since Jan 2026</span>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">Open Orders</span>
+                <span class="summary-value">3</span>
+                <span class="summary-change">2 buy · 1 sell</span>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card chart-card">
+                <div class="card-header">
+                    <h3>Portfolio Performance</h3>
+                    <div class="timeframe-buttons">
+                        <button class="active">1D</button>
+                        <button>1W</button>
+                        <button>1M</button>
+                        <button>3M</button>
+                        <button>1Y</button>
+                        <button>ALL</button>
+                    </div>
+                </div>
+                <div class="chart-placeholder">
+                    <div class="chart-svg">
+                        <svg viewBox="0 0 600 200" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="var(--chart-up)" stop-opacity="0.3"/>
+                                    <stop offset="100%" stop-color="var(--chart-up)" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,160 L50,145 L100,150 L150,130 L200,140 L250,110 L300,120 L350,90 L400,100 L450,70 L500,80 L550,50 L600,60" fill="none" stroke="var(--chart-up)" stroke-width="2"/>
+                            <path d="M0,160 L50,145 L100,150 L150,130 L200,140 L250,110 L300,120 L350,90 L400,100 L450,70 L500,80 L550,50 L600,60 L600,200 L0,200 Z" fill="url(#chartGrad)"/>
+                        </svg>
+                    </div>
+                    <div class="chart-stats">
+                        <span>Open: $121,146.69</span>
+                        <span>High: $125,890.00</span>
+                        <span>Low: $119,432.10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card holdings-card">
+                <div class="card-header">
+                    <h3>Your Holdings</h3>
+                    <a href="market.html" class="btn-outline btn-sm">Trade</a>
+                </div>
+                <div class="holdings-table">
+                    <div class="holding-row">
+                        <div class="holding-info">
+                            <div class="holding-icon btc">₿</div>
+                            <div>
+                                <strong>Bitcoin</strong>
+                                <span>BTC</span>
+                            </div>
+                        </div>
+                        <div class="holding-amount">
+                            <strong>1.42 BTC</strong>
+                            <span>$47,896.20</span>
+                        </div>
+                        <div class="holding-change up">+4.21%</div>
+                    </div>
+                    <div class="holding-row">
+                        <div class="holding-info">
+                            <div class="holding-icon eth">Ξ</div>
+                            <div>
+                                <strong>Ethereum</strong>
+                                <span>ETD</span>
+                            </div>
+                        </div>
+                        <div class="holding-amount">
+                            <strong>8.75 ETH</strong>
+                            <span>$30,169.30</span>
+                        </div>
+                        <div class="holding-change up">+2.83%</div>
+                    </div>
+                    <div class="holding-row">
+                        <div class="holding-info">
+                            <div class="holding-icon sol">▘</div>
+                            <div>
+                                <strong>Solana</strong>
+                                <span>SOL</span>
+                            </div>
+                        </div>
+                        <div class="holding-amount">
+                            <strong>124.5 SOL</strong>
+                            <span>$23,351.13</span>
+                        </div>
+                        <div class="holding-change up">+6.14%</div>
+                    </div>
+                    <div class="holding-row">
+                        <div class="holding-info">
+                            <div class="holding-icon ada">₠</div>
+                            <div>
+                                <strong>Cardano</strong>
+                                <span>ADA</span>
+                            </div>
+                        </div>
+                        <div class="holding-amount">
+                            <strong>15,000 ADA</strong>
+                            <span>$9,750.00</span>
+                        </div>
+                        <div class="holding-change down">-1.52%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card orders-card">
+                <div class="card-header">
+                    <h3>Recent Orders</h3>
+                </div>
+                <div class="orders-list">
+                    <div class="order-row">
+                        <div>
+                            <span class="order-type buy">BUY</span>
+                            <strong>BTC/USD</strong>
+                        </div>
+                        <div>0.15 BTC @ $67,120</div>
+                        <div class="order-status filled">Filled</div>
+                        <span>2 min ago</span>
+                    </div>
+                    <div class="order-row">
+                        <div>
+                            <span class="order-type sell">SELL</span>
+                            <strong>ETH/USD</strong>
+                        </div>
+                        <div>2.5 ETH @ $3,450</div>
+                        <div class="order-status filled">Filled</div>
+                        <span>15 min ago</span>
+                    </div>
+                    <div class="order-row">
+                        <div>
+                            <span class="order-type buy">BUY</span>
+                            <strong>SOL/USD</strong>
+                        </div>
+                        <div>50 SOL @ $185</div>
+                        <div class="order-status pending">Pending</div>
+                        <span>45 min ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 CryptoBroker Pro. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
